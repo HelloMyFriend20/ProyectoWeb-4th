@@ -5,7 +5,6 @@
     padding: 0%;
     color: #8C5C3E ;
 }
-
 html {
     scroll-behavior: smooth;
 }
@@ -37,25 +36,19 @@ html {
     transition: transition 0.3s;
     color: #8C5C3E;
 }
-
-/*Titulo*/
-.titulo {
-    background-image: url(https://cdn.pixabay.com/photo/2016/11/17/09/28/hotel-1831072_1280.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #333; 
-    text-align: center;
-    padding-top: 18%;
-    padding-bottom: 18%;
+/*Inicio*/
+.imagenes {
+    display: flex;
+    justify-content: center;
+    background-color: #8C5C3E;
+    padding-top: 3%;
 }
-.titulo h1 {
-    font-size: clamp(24px, 2vw + 1rem, 48px);
-    color: #F4F1EA;
-    text-shadow: 2px 2px 4px #000000;
+.imagenes > .imagen1 > img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
 }
 
-.servicios {
-    background-color: #F4F1EA ;
-
+.imagenes > .imagen2 > img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
 }
