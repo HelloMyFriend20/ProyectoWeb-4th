@@ -1,68 +1,89 @@
 * {
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
-    margin: auto;
-    padding: auto;
+    margin: 0;
+    padding: 0;
     color: #8C5C3E ;
 }
 html {
     scroll-behavior: smooth;
 }
-/* Menu Desplegable */
+
+/* Sección de inicio */
 .inicio {
-    list-style: none;
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
-    align-items: left;
-    min-width: 300px;
     background-color: #8C5C3E;
+    padding: 10px 5%;
 }
 .logo {
-    margin: 0%;
-    padding-left: 2%;
-    padding-right: 2%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background-color: #F4F1EA;
-    border-radius: 100px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.menu_desplegable {
-    padding-top: 1%;
-    padding-left: 10%;
-    margin: 0%;
-    background-color: #8C5C3E;
+.logo img {
+    width: 200px;
+    height: auto;
 }
-.menu_desplegable > ul{
+.menu_desplegable ul {
     list-style: none;
     display: flex;
-    justify-content: left;
     flex-wrap: wrap;
-    align-items: left;
-    min-width: 300px;
-    margin: 0%;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
 }
-.menu_desplegable > ul > li{
-    position: relative;
+.menu_desplegable ul li {
+    flex: 1 1 150px; /* Cada botón mínimo mide 150px y crece */
+    text-align: center;
 }
-.menu_desplegable > ul > li > a{
+.menu_desplegable ul li a {
     display: block;
-    padding: 1em 2em;
-    border: 1px solid #8C5C3E;
-    text-decoration: none;
-    color: #F4F1EA;
-    font-size: 1.2vw;
-    font-weight: bold;
+    width: 100%;
+    padding: 0.8em 1.5em;
     background-color: #8C5C3E;
-    border-radius: 90px;
+    color: #F4F1EA;
+    font-size: clamp(12px, 2vw, 18px);
+    font-weight: bold;
+    border: 2px solid #F4F1EA;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
-.menu_desplegable > ul > li:hover > a{
-    background-color: #f0f0f0;
-    transition: transition 0.3s;
+.menu_desplegable ul li:hover a {
+    background-color: #F4F1EA;
     color: #8C5C3E;
+}
+/* Responsividad */
+@media (max-width: 1024px) {
+    .menu_desplegable ul {
+        gap: 10px;
+    }
+
+    .imagenes {
+        gap: 10px;
+    }
+
+    .imagenes > div > a > img {
+        width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .inicio {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .menu_desplegable ul {
+        justify-content: center;
+        margin-top: 20px;
+    }
 }
 
 /*Titulo*/
@@ -108,37 +129,54 @@ html {
     padding-top: 10%;
 }
 .servicios > .imagen_club > img {
+    width: 530px;
+    height: auto;
     border-radius: 100%;
 }
 
+@media (max-width: 768px) {
+    .servicios {
+        flex-direction: column;
+        text-align: center;
+    }
+    .servicios > .club {
+        padding-right: 0;
+    }
+    .servicios > .imagen_club {
+        padding-top: 5%;
+    }
+    .servicios > .imagen_club > img {
+        width: 80%;
+        height: auto;
+    }
+}
+
 /*Footer*/
-.creativo {
-    padding-left: 2%;
-    padding-right: 2%;
-}
-.creativo > p {
-    background-color: #8C5C3E;
-    padding-top: 0.2%;
-    
-}
-footer {
-    display: flex;
-    justify-content: space-around;
-    background-color: #F4F1EA;
-    padding-top: 2%;
-    padding-bottom: 2%;
-}
-footer > .datos {
-    margin: 0%;
-    padding-left: 2%;
-}
-footer > .redes_sociales {
-    display: flex;
-    justify-content: space-around;
-}
-footer > .redes_sociales > .instagram {
-    padding-left: 120%;
-}
-footer > .redes_sociales > .facebook {
-    padding-left: 10%;
+@media (max-width: 768px) {
+    .creativo {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    .creativo > p {
+        background-color: #8C5C3E;
+        padding-top: 0.2%;  
+        }
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    footer > .datos {
+        margin-bottom: 20px;
+    }
+    footer > .redes_sociales {
+        justify-content: center;
+        gap: 20px;
+    }
+    footer > .redes_sociales > .instagram {
+        padding-left: 0;
+    }
+    footer > .redes_sociales > .facebook {
+        padding-left: 0;
+    }
 }
