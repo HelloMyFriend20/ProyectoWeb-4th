@@ -1,0 +1,87 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #8C5C3E ;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* Sección de inicio */
+.inicio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #8C5C3E;
+    padding: 10px 5%;
+}
+.logo {
+    background-color: #F4F1EA;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo img {
+    width: 200px;
+    height: auto;
+}
+.menu_desplegable ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+.menu_desplegable ul li {
+    flex: 1 1 150px; /* Cada botón mínimo mide 150px y crece */
+    text-align: center;
+}
+.menu_desplegable ul li a {
+    display: block;
+    width: 100%;
+    padding: 0.8em 1.5em;
+    background-color: #8C5C3E;
+    color: #F4F1EA;
+    font-size: clamp(12px, 2vw, 18px);
+    font-weight: bold;
+    border: 2px solid #F4F1EA;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.menu_desplegable ul li:hover a {
+    background-color: #F4F1EA;
+    color: #8C5C3E;
+}
+/* Responsividad */
+@media (max-width: 1024px) {
+    .menu_desplegable ul {
+        gap: 10px;
+    }
+
+    .imagenes {
+        gap: 10px;
+    }
+
+    .imagenes > div > a > img {
+        width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .inicio {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .menu_desplegable ul {
+        justify-content: center;
+        margin-top: 20px;
+    }
+}

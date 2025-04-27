@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Estilos/hoteles.css">
+    <link rel="stylesheet" href="Estilos/hospedaje.css">
     <title>Hoteles</title>
 </head>
 <body>
@@ -14,11 +14,11 @@
         </div>
         <nav class="menu_desplegable">
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="hospedaje.html">hospedaje</a></li>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="hospedaje.php">hospedaje</a></li>
                 <li><a href="restaurantes.html">Restaurantes</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="afiliaciones.html">Afiliacion</a></li>
+                <li><a href="afiliaciones.php">Afiliacion</a></li>
             </ul>
         </nav>
     </section>
@@ -58,7 +58,7 @@
             <div class="hotelInfo" id="Melbourne">
                 <h3>Hotel Melbourne</h3>
                 <br>
-                <img src="https://www.construcia.com/wp-content/uploads/2023/10/Construcia-Hyde-158-700x467.jpg" alt="">
+                <img src="https://www.construcia.com/wp-content/uploads/2023/10/Construcia-Hyde-158-700x467.jpg" alt="Melbourne">
             </div>
             <div class="hotelInfo2">
                 <h4>Informacion Hotel Melbourne</h4>
@@ -74,11 +74,6 @@
             </div>
         </div>
         <div class="hotelPrincipal">
-            <div class="hotelInfo" id="Calderon">
-                <h3>Hotel Calderon Cortes</h3>
-                <br>
-                <img src="https://cdn.forbes.co/2020/02/sofitel-legend-santa-clara-outdoor-pool.jpg" alt="" width="700">
-            </div>
             <div class="hotelInfo2">
                 <h4>Informacion Hotel Calderon Cortes</h4>
                 <br>
@@ -88,13 +83,18 @@
                 <br>
                 <button><a href="afiliación.html"><b>Reserva con nosotros</b></a></button>
                 <button><a href="#inicio"><b>Volver al inicio</b></a></button>
+                <div class="hotelInfo" id="Calderon">
+                <h3>Hotel Calderon Cortes</h3>
+                <br>
+                <img src="https://cdn.forbes.co/2020/02/sofitel-legend-santa-clara-outdoor-pool.jpg" alt="Calderon Cortes" width="700">
+            </div>
             </div>
         </div>
         <div class="hotelPrincipal">
             <div class="hotelInfo" id="Reyes">
                 <h3>Hotel Reyes</h3>
                 <br>
-                <img src="https://www.realhotelsandresorts.com/wp-content/uploads/2024/08/fachada-principal-700x467.jpg" alt=""> 
+                <img src="https://www.realhotelsandresorts.com/wp-content/uploads/2024/08/fachada-principal-700x467.jpg" alt="Reyes"> 
             </div>
             <div class="hotelInfo2">
                 <h4>Descripcion Hotel Reyes</h4>

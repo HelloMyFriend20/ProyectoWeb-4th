@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>afiliaciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Estilos/sesion.css">
+    <title>Iniciar Sesion</title>
 </head>
 <body>
-    <div class="menu_desplegable">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="hoteles.html">Hoteles</a></li>
-            <li><a href="restaurantes.html">Restaurantes</a></li>
-            <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="afiliaciones.html">Afiliacion</a></li>
-        </ul>
-    </div>
+<section class="inicio">
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="logo" width="200">
+        </div>
+        <nav class="menu_desplegable">
+            <ul>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="hospedaje.php">hospedaje</a></li>
+                <li><a href="restaurantes.php">Restaurantes</a></li>
+                <li><a href="servicios.php">Servicios</a></li>
+                <li><a href="afiliaciones.php">Iniciar Sesion</a></li>
+            </ul>
+        </nav>
+    </section>
     <div class="recuadro">
         <h1>Afiliación</h1>
         <p>Ingresa tu número de identificación para verificar si eres afiliado a nuestro club campestre:</p>

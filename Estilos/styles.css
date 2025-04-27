@@ -106,33 +106,38 @@ html {
 /*Servicios*/
 .servicios {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap; /* Para que los elementos se acomoden mejor en pantallas medianas */
+    justify-content: center; /* Centrar contenido */
     align-items: center;
-    background-color: #F4F1EA ;
+    background-color: #F4F1EA;
     padding: 5%;
-    min-width: 300px;
+    gap: 40px; /* Espacio entre texto e imagen */
 }
-.servicios > .club {
-    padding-right: 10%;
+
+.servicios .club {
+    flex: 1 1 400px; /* Se adaptan según el tamaño de pantalla */
+    max-width: 600px;
 }
-.servicios > .club > h2 {
-    font-size: 5vw;
-    font-style: bold;
-    padding-bottom: 2%;
+
+.servicios .club h2 {
+    font-size: clamp(24px, 5vw, 36px); /* Tamaño de texto flexible */
+    font-weight: bold; /* Corrigiendo 'font-style: bold' a 'font-weight' */
+    margin-bottom: 20px;
 }
-.servicios > .club > p {
-    font-size: 1.5vw;
-    font-style: bold;
+
+.servicios .club p {
+    font-size: clamp(14px, 2vw, 18px);
     text-align: justify;
+    margin-bottom: 15px;
 }
-.servicios > .imagen_club {
-    padding-top: 10%;
-}
-.servicios > .imagen_club > img {
-    width: 530px;
+
+.servicios .imagen_club img {
+    width: 100%;
+    max-width: 400px;
     height: auto;
     border-radius: 100%;
 }
+
 
 @media (max-width: 768px) {
     .servicios {
@@ -152,31 +157,45 @@ html {
 }
 
 /*Footer*/
-@media (max-width: 768px) {
-    .creativo {
-        padding-left: 2%;
-        padding-right: 2%;
-    }
-    .creativo > p {
-        background-color: #8C5C3E;
-        padding-top: 0.2%;  
-        }
+footer {
+    background-color: #8C5C3E;
+    color: #F4F1EA;
+    padding: 5% 2%;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los bloques se acomoden mejor */
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
+footer .datos,
+footer .redes_sociales {
+    flex: 1 1 300px; /* Se adaptan */
+    max-width: 400px; /* Tamaño máximo */
+}
+footer .datos p {
+    margin-bottom: 10px;
+    color: #F4F1EA;
+    text-align: justify;
+}
+footer .redes_sociales {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+footer .redes_sociales a {
+    color: #F4F1EA;
+    text-decoration: none;
+    font-weight: bold;
+}
+footer .redes_sociales img {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+/* Responsive extra */
+@media (max-width: 480px) {
     footer {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    footer > .datos {
-        margin-bottom: 20px;
-    }
-    footer > .redes_sociales {
-        justify-content: center;
-        gap: 20px;
-    }
-    footer > .redes_sociales > .instagram {
-        padding-left: 0;
-    }
-    footer > .redes_sociales > .facebook {
-        padding-left: 0;
+        padding: 10% 5%;
     }
 }

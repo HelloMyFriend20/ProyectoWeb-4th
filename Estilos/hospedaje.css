@@ -179,3 +179,81 @@ html {
         font-size: 2.5rem;
     }
 }
+
+/* Hoteles */
+.varios_hoteles {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #F4F1EA;
+    padding: 2%;
+    text-align: center;
+}
+.hotel1 > a > img {
+    border-radius: 5%;
+}
+.hotel1 > a > img:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+.hotelPrincipal {
+    background-color: #F4F1EA;
+    display: flex;
+    justify-content: space-around;
+    padding: 2%;
+}
+.hotelInfo {
+    padding: 2%;
+}
+.hotelInfo > img {
+    border-radius: 2%;
+    width: 350px;
+    max-width: 90vw;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.hotelInfo2 {
+    padding: 2%;
+    text-align: justify;
+}
+.hotelInfo2 h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hotelInfo2 p {
+    font-size: 1.2rem;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.hotelInfo2 button {
+    background-color: #8C5C3E;
+    color: #F4F1EA;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hotelInfo2 button:hover {
+    background-color: #F4F1EA;
+    color: #8C5C3E;
+    border: 2px solid #8C5C3E;
+}
+/* Responsividad Hoteles */
+@media (max-width: 768px) {
+    .hotelPrincipal {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hotelInfo img {
+        width: 80%;
+    }
+
+    .hotelInfo2 {
+        text-align: center;
+    }
+}
