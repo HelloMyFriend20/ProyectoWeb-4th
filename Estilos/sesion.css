@@ -8,7 +8,6 @@
 html {
     scroll-behavior: smooth;
 }
-
 /* Sección de inicio */
 .inicio {
     display: flex;
@@ -83,5 +82,73 @@ html {
     .menu_desplegable ul {
         justify-content: center;
         margin-top: 20px;
+    }
+}
+/*Inicio de sesion*/
+.sesion {
+    padding: 16% 38%;
+    text-align: center;
+    background-image: url(https://cdn.pixabay.com/photo/2017/01/28/19/31/landscape-2016308_1280.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.sesion form {
+    border: #8C5C3E solid 1px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-color: #F4F1EA;
+    padding-top: 10%;
+    padding-bottom: 2%;
+}
+.sesion h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #8C5C3E;
+}
+.sesion form button {
+    margin-bottom: 10%;
+}
+/*Footer*/
+footer {
+    background-color: #8C5C3E;
+    color: #F4F1EA;
+    padding: 5% 2%;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los bloques se acomoden mejor */
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
+footer .datos,
+footer .redes_sociales {
+    flex: 1 1 0px; /* Se adaptan */
+    max-width: 400px; /* Tamaño máximo */
+}
+footer .datos p {
+    margin-bottom: 10px;
+    color: #F4F1EA;
+    text-align: justify;
+}
+footer .redes_sociales {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+footer .redes_sociales a {
+    color: #F4F1EA;
+    text-decoration: none;
+    font-weight: bold;
+}
+footer .redes_sociales img {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+/* Responsive extra */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        padding: 10% 5%;
+        align-items: baseline;
     }
 }

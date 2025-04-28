@@ -24,11 +24,19 @@
     </section>
     <div class="sesion">
         <form action="procesar_formulario.php" method="post">
-            <h2>Iniciar Sesión</h2>
+            <h2>Registro</h2>
+            <label for="nombre"><b>Nombres:</b></label><br>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+            <label for="apellido"><b>Apellidos</b></label><br>
+            <input type="text" id="apellido" name="apelldo" required><br><br>
             <label for="correo"><b>Correo:</b></label><br>
             <input type="email" id="correo" name="correo" required><br><br>
+            <label for="telefono"><b>Telefono:</b></label><br>
+            <input type="text" id="telefono" name="telefono" required><br><br>
             <label for="contraseña"><b>Contraseña:</b></label><br>
             <input type="password" id="contraseña" name="contraseña" required><br><br>
+            <label for="confirmar"><b>Confirmar contraseña:</b></label><br>
+            <input type="text" id="confirmar" name="confirmar" required><br><br>
             <button type="submit">Continuar</button>
             <br>
             <a href="registro.php">registrarse</a>

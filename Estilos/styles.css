@@ -170,7 +170,7 @@ footer {
 }
 footer .datos,
 footer .redes_sociales {
-    flex: 1 1 300px; /* Se adaptan */
+    flex: 1 1 0px; /* Se adaptan */
     max-width: 400px; /* Tamaño máximo */
 }
 footer .datos p {
@@ -193,9 +193,10 @@ footer .redes_sociales img {
     vertical-align: middle;
 }
 /* Responsive extra */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     footer {
         flex-direction: column;
         padding: 10% 5%;
+        align-items: baseline;
     }
 }
