@@ -86,7 +86,7 @@ html {
 }
 /*Inicio de sesion*/
 .sesion {
-    padding: 16% 38%;
+    padding: 5% 10%; /* Reduce el padding para que sea más responsivo */
     text-align: center;
     background-image: url(https://cdn.pixabay.com/photo/2017/01/28/19/31/landscape-2016308_1280.jpg);
     background-size: cover;
@@ -105,8 +105,28 @@ html {
     margin-bottom: 20px;
     color: #8C5C3E;
 }
+.sesion input {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 15px; /* Espaciado entre campos */
+    border: 1px solid #ccc; /* Borde del campo */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+}
 .sesion form button {
-    margin-bottom: 10%;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 10px;
+    background-color: #8C5C3E;
+    color: #F4F1EA;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.sesion form button:hover {
+    background-color: #6E4A2E;
 }
 /*Footer*/
 footer {
@@ -150,5 +170,22 @@ footer .redes_sociales img {
         flex-direction: column;
         padding: 10% 5%;
         align-items: baseline;
+    }
+    .sesion {
+        padding: 10%; /* Ajusta el padding para pantallas pequeñas */
+    }
+
+    .sesion form {
+        padding: 5%; /* Reduce el padding interno del formulario */
+    }
+}
+/* Ajustes para pantallas grandes */
+@media (min-width: 1024px) {
+    .sesion {
+        padding: 5% 30%; /* Restaura el tamaño original del formulario */
+    }
+
+    .sesion form {
+        padding: 10% 5%; /* Mantiene el espacio interno del formulario */
     }
 }
