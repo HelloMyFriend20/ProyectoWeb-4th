@@ -67,7 +67,7 @@ html {
     align-items: center;
     gap: 1%;
     background-color: #8C5C3E;
-    padding: 5% 2%;
+    padding: 2% 2%;
     flex-wrap: wrap;
 }
 /* Estilo general de las imágenes */
@@ -131,7 +131,11 @@ html {
     font-size: 3rem;
     color: #8C5C3E;
 }
-
+.titulo_hoteles p {
+    font-size: 1.3rem;
+    color: #8C5C3E;
+    text-align: center;
+}
 /* Responsividad */
 @media (max-width: 1024px) {
     .menu_desplegable ul {
@@ -189,6 +193,10 @@ html {
     padding: 2%;
     text-align: center;
 }
+.varios_hoteles h3 {
+    font-size: 1.2rem;
+    color: #8C5C3E;
+}
 .hotel1 > a > img {
     border-radius: 5%;
 }
@@ -196,27 +204,37 @@ html {
     transform: scale(1.05);
     transition: all 0.3s ease;
 }
+
+/* Hoteles */
 .hotelPrincipal {
     background-color: #F4F1EA;
     display: flex;
     justify-content: space-around;
-    padding: 2%;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 .hotelInfo {
-    padding: 2%;
+    align-items: center;
+    padding: 5%;
+}
+.hotelInfo h3 {
+    font-size: 1.5rem;
+    color: #8C5C3E;
 }
 .hotelInfo > img {
-    border-radius: 2%;
-    width: 350px;
+    border-radius: 20px;
+    width: 500px;
     max-width: 90vw;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 .hotelInfo2 {
-    padding: 2%;
+    padding: 5%;
     text-align: justify;
+    padding-top: 9%;
 }
-.hotelInfo2 h2 {
-    font-size: 2.5rem;
+.hotelInfo2 h4 {
+    font-size: 1rem;
     margin-bottom: 15px;
 }
 
@@ -248,13 +266,16 @@ html {
         flex-direction: column;
         align-items: center;
     }
-
+    .hotelInfo {
+        padding: 0;
+        text-align: center;
+    }
     .hotelInfo img {
         width: 80%;
     }
-
     .hotelInfo2 {
         text-align: center;
+        gap: 20px;
     }
 }
 
