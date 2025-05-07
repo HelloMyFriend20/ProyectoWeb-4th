@@ -1,0 +1,106 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #8C5C3E;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* Sección de inicio */
+.inicio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #8C5C3E;
+    padding: 10px 5%;
+}
+.logo {
+    background-color: #F4F1EA;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo img {
+    width: 200px;
+    height: auto;
+}
+.menu_desplegable ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+.menu_desplegable ul li {
+    flex: 1 1 150px; /* Cada botón mínimo mide 150px y crece */
+    text-align: center;
+}
+.menu_desplegable ul li a {
+    display: block;
+    width: 100%;
+    padding: 0.8em 1.5em;
+    background-color: #8C5C3E;
+    color: #F4F1EA;
+    font-size: clamp(12px, 2vw, 18px);
+    font-weight: bold;
+    border: 2px solid #F4F1EA;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.menu_desplegable ul li:hover a {
+    background-color: #F4F1EA;
+    color: #8C5C3E;
+}
+
+/*Footer*/
+footer {
+    background-color: #8C5C3E;
+    color: #F4F1EA;
+    padding: 5% 2%;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los bloques se acomoden mejor */
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
+footer .datos,
+footer .redes_sociales {
+    flex: 1 1 0px; /* Se adaptan */
+    max-width: 400px; /* Tamaño máximo */
+}
+footer .datos p {
+    margin-bottom: 10px;
+    color: #F4F1EA;
+    text-align: justify;
+}
+footer .redes_sociales {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+footer .redes_sociales a {
+    color: #F4F1EA;
+    text-decoration: none;
+    font-weight: bold;
+}
+footer .redes_sociales img {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+/* Responsive extra */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        padding: 10% 5%;
+        align-items: baseline;
+    }
+}
