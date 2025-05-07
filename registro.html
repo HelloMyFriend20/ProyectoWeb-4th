@@ -6,6 +6,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Estilos/sesion.css">
     <title>Iniciar Sesion</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const formulario = document.querySelector("form");
+            const campoCorreo = document.getElementById("correo");
+    
+            formulario.addEventListener("submit", function (e) {
+                const correoIngresado = campoCorreo.value.trim().toLowerCase();
+                if (correoIngresado === "example@correo.com") {
+                    e.preventDefault(); // Evita que se envíe el formulario
+                    alert("El correo ya se encuentra registrado.");
+                }
+            });
+        });
+    </script>
+    
 </head>
 <body>
 <section class="inicio">
@@ -36,11 +51,11 @@
             <label for="contraseña"><b>Contraseña:</b></label><br>
             <input type="password" id="contraseña" name="contraseña" required><br><br>
             <label for="confirmar"><b>Confirmar contraseña:</b></label><br>
-            <input type="text" id="confirmar" name="confirmar" required><br><br>
+            <input type="password" id="confirmar" name="confirmar" required><br><br>
             <button type="submit">Continuar</button>
             <br>
-            <a href="registro.php">registrarse</a>
-            <a href="recuperar.php">recuperar contraseña</a>
+            <a href="registro.html">registrarse</a>
+            <a href="recuperar.html">recuperar contraseña</a>
         </form>
     </div>
     <footer>
