@@ -109,6 +109,9 @@ html {
 }
 .imagen_descripcion {
     padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .imagen_descripcion img {
     width: 500px;
@@ -126,6 +129,30 @@ html {
 .info_descripcion p {
     font-size: clamp(14px, 2vw, 18px);
     text-align: justify;
+    color: #8C5C3E;
+}
+@media (max-width: 768px) {
+    .descripcion{
+        flex-direction: column;
+        align-items: center;
+    }
+    .descripcion > .imagen_descripcion {
+        padding: 0%;
+    }    
+    .descripcion > .imagen_descripcion > img {
+        width: 80%;
+        height: auto;
+    }
+    .descripcion > .info_descripcion {
+        padding: 5%;
+        text-align: center;
+    }
+    .descripcion > .info_descripcion > h2 {
+        font-size: 2rem;
+    }
+    .descripcion > .info_descripcion > p {
+        font-size: 1.2rem;
+    }
 }
 
 /* Sección de imágenes */
@@ -147,6 +174,20 @@ html {
 .varios a img:hover {
     transform: scale(1.05);
     transition: all 0.3s ease;
+}
+@media (max-width: 768px) {
+    .varios_restaurantes {
+        flex-direction: column;
+        align-items: center;
+    }
+    .varios_restaurantes h3 {
+        font-size: 1.5rem;
+        padding-top: 10%;
+    }
+    .varios a img {
+        width: 95%;
+        height: auto;
+    }
 }
 
 /*Restaurantes*/
@@ -209,6 +250,98 @@ html {
 .parte2 button:hover a {
     color: #8C5C3E;
 }
+/*Responsividad Restaurantes*/
+@media (max-width: 768px) {
+    .restaurantes_principales {
+        flex-direction: column;
+        align-items: center;
+    }
+    .parte1, .parte2 {
+        padding: 0;
+        text-align: center;
+    }
+    .parte1 h3 {
+        font-size: 2rem;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .parte1 img {
+        width: 80%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .parte2 {
+        text-align: center;
+        gap: 20px;
+    }
+    .parte2 button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+}
+
+/*Comida Rapida*/
+.plazoleta {
+    display: flex;
+    justify-content: space-around;
+    padding: 5%;
+    background-color: #F4F1EA;
+    color: #8C5C3E;
+}
+.plazoleta img {
+    width: 120px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+/*Responsabilidad Comida Rapida*/
+@media (max-width: 768px) {
+    .plazoleta {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem; /* Espacio entre imágenes */
+    }
+    .plazoleta img {
+        width: 80px; /* O ajustable según se vea mejor */
+        margin: 5px;
+    }
+}
+.boton {
+    text-align: center;
+    padding: 2%;
+    background-color: #F4F1EA;
+}
+.boton button{
+    background-color: #8C5C3E;
+    color: #F4F1EA;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.boton button a {
+    color: #F4F1EA;
+    text-decoration: none;
+}
+.boton button:hover {
+    background-color: #F4F1EA;
+    color: #8C5C3E;
+    border: 1px solid #8C5C3E;
+}
+.boton button:hover a {
+    color: #8C5C3E;
+}
+@media (max-width: 768px) {
+    .boton button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+}
 
 /*Footer*/
 footer {
@@ -222,8 +355,6 @@ footer {
     text-align: center;
     gap: 30px;
 }
-/*Ejemplo*/
-
 footer .datos,
 footer .redes_sociales {
     flex: 1 1 0px; /* Se adaptan */
