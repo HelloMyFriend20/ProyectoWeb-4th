@@ -59,6 +59,29 @@ html {
     background-color: #F4F1EA;
     color: #8C5C3E;
 }
+/* Responsividad */
+@media (max-width: 1024px) {
+    .menu_desplegable ul {
+        gap: 10px;
+    }
+    .imagenes {
+        gap: 10px;
+    }
+    .imagenes > div > a > img {
+        width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .inicio {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .menu_desplegable ul {
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
 
 /*Footer*/
 footer {

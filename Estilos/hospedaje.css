@@ -3,7 +3,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: #8C5C3E;
 }
 html {
     scroll-behavior: smooth;
@@ -70,6 +69,7 @@ html {
     padding: 2% 2%;
     flex-wrap: wrap;
 }
+
 /* Estilo general de las imágenes */
 .imagenes > div {
     position: relative;
@@ -82,6 +82,7 @@ html {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     transition: transform 0.5s, filter 0.5s;
 }
+
 /* Texto sobre las imágenes */
 .texto_imagen {
     position: absolute;
@@ -95,6 +96,7 @@ html {
     padding: 10px 20px;
     border-radius: 10px;
 }
+
 /* Hover Efectos */
 .imagenes:hover .imagen1 img,
 .imagenes:hover .imagen2 img {
@@ -105,6 +107,7 @@ html {
     transform: scale(1.1);
     filter: brightness(100%);
 }
+
 /* Animaciones */
 .imagenes > div > a > img {
     animation: fadeIn 1s ease-in;
@@ -136,49 +139,42 @@ html {
     color: #8C5C3E;
     text-align: center;
 }
+
 /* Responsividad */
 @media (max-width: 1024px) {
     .menu_desplegable ul {
         gap: 10px;
     }
-
     .imagenes {
         gap: 10px;
     }
-
     .imagenes > div > a > img {
         width: 100%;
     }
 }
-
 @media (max-width: 768px) {
     .inicio {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-
     .menu_desplegable ul {
         justify-content: center;
         margin-top: 20px;
     }
-
     .imagenes {
         flex-direction: column;
         padding: 10% 5%;
     }
-
     .imagenes > div > a > img {
         width: 100%;
     }
-
     .texto_imagen {
         font-size: 1.5rem;
         padding: 8px 15px;
         bottom: 10px;
         left: 10px;
     }
-
     .titulo_hoteles h2 {
         font-size: 2.5rem;
     }
@@ -213,6 +209,7 @@ html {
     padding-top: 5%;
     padding-left: 5%;
     padding-right: 5%;
+    color: #8C5C3E;
 }
 .hotelInfo {
     align-items: center;
@@ -237,13 +234,11 @@ html {
     font-size: 1.5rem;
     margin-bottom: 15px;
 }
-
 .hotelInfo2 p {
     font-size: 1.2rem;
     text-align: justify;
     margin-bottom: 20px;
 }
-
 .hotelInfo2 button {
     background-color: #8C5C3E;
     color: #F4F1EA;
@@ -254,11 +249,17 @@ html {
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
+.hotelInfo2 button a {
+    color: #F4F1EA;
+    text-decoration: none;
+}
 .hotelInfo2 button:hover {
     background-color: #F4F1EA;
     color: #8C5C3E;
-    border: 2px solid #8C5C3E;
+    border: 1px solid #8C5C3E;
+}
+.hotelInfo2 button:hover a {
+    color: #8C5C3E;
 }
 /* Responsividad Hoteles */
 @media (max-width: 768px) {
