@@ -222,6 +222,8 @@ footer {
     text-align: center;
     gap: 30px;
 }
+/*Ejemplo*/
+
 footer .datos,
 footer .redes_sociales {
     flex: 1 1 0px; /* Se adaptan */
