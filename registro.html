@@ -7,21 +7,53 @@
     <link rel="stylesheet" href="Estilos/sesion.css">
     <title>Iniciar Sesion</title>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const formulario = document.querySelector("form");
-            const campoCorreo = document.getElementById("correo");
-    
-            formulario.addEventListener("submit", function (e) {
-                const correoIngresado = campoCorreo.value.trim().toLowerCase();
-                if (correoIngresado === "example@correo.com") {
-                    e.preventDefault(); // Evita que se envíe el formulario
-                    alert("El correo ya se encuentra registrado.");
-                }
-            });
+    document.addEventListener("DOMContentLoaded", function () {
+        const formulario = document.querySelector("form");
+        const correoInput = document.getElementById("correo");
+        const contraseñaInput = document.getElementById("contraseña");
+        const confirmarInput = document.getElementById("confirmar");
+
+        function contraseñasCoinciden(pass, confirm) {
+            return pass === confirm;
+        }
+
+        async function correoYaRegistrado(correo) {
+            try {
+                const respuesta = await fetch(`verificar_correo.php?correo=${encodeURIComponent(correo)}`);
+                const resultado = await respuesta.text();
+                return resultado === "existe";
+            } catch (error) {
+                console.error("Error al verificar el correo:", error);
+                alert("Error al verificar el correo. Intenta de nuevo.");
+                return true; // Por precaución, bloqueamos el registro si hay error
+            }
+        }
+
+        formulario.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const correo = correoInput.value.trim();
+            const pass = contraseñaInput.value;
+            const confirm = confirmarInput.value;
+
+            // 1. Verificar contraseñas
+            if (!contraseñasCoinciden(pass, confirm)) {
+                alert("Las contraseñas no coinciden.");
+                return;
+            }
+
+            // 2. Verificar si el correo ya está registrado
+            if (await correoYaRegistrado(correo)) {
+                alert("El correo ya se encuentra registrado.");
+                return;
+            }
+
+            // 3. Si todo está bien, enviar el formulario
+            formulario.submit();
         });
-    </script>
-    
-</head>
+    });
+    </script>   
+    </head>
 <body>
 <section class="inicio">
         <div class="logo">
@@ -51,7 +83,7 @@
             <label for="contraseña"><b>Contraseña:</b></label><br>
             <input type="password" id="contraseña" name="contraseña" required><br><br>
             <label for="confirmar"><b>Confirmar contraseña:</b></label><br>
-            <input type="password" id="confirmar" name="confirmar" required><br><br>
+            <input type="password" id="confirmar" name="confirmar" requaired><br><br>
             <button type="submit">Continuar</button>
             <br>
             <a href="registro.html">registrarse</a>

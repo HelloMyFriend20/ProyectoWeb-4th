@@ -1,56 +1,48 @@
 <?php
-require_once __DIR__ . '/../../database/conexion.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-$conn = conectarBD();
+require_once __DIR__ . '/../../includes/usuarios.php';
 
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Si el formulario tiene el campo "nombre", es registro
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST['nombre'])) {
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $correo = $_POST['correo'];
-        $telefono = $_POST['telefono'];
-        $contraseña = password_hash($_POST['contraseña'], PASSWORD_DEFAULT);
-
-        $sql = "INSERT INTO registro (nombre, apellido, correo, telefono, contraseña)
-                VALUES ('$nombre', '$apellido', '$correo', '$telefono', '$contraseña')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "✅ Registro exitoso.";
+        // Registro
+        $exito = registrarUsuario($_POST);
+        
+        if ($exito === "existe") {
+            echo "<script>
+                    alert('El correo ya está registrado.');
+                    window.history.back();
+                  </script>";
+        } elseif ($exito) {
+            echo "<script>
+                    alert('Registro exitoso.');
+                    window.location.href = '../../registro.html'; // o a donde desees redirigir
+                  </script>";
         } else {
-            echo "❌ Error: " . $sql . "<br>" . $conn->error;
+            echo "<script>
+                    alert('Error en el registro.');
+                    window.history.back();
+                  </script>";
         }
-
     } else {
-        // Inicio de sesión
+        // Login
         $correo = $_POST['correo'];
-        $contraseñaIngresada = $_POST['contraseña'];
+        $contraseña = $_POST['contraseña'];
 
-        $stmt = $conn->prepare("SELECT * FROM registro WHERE correo = ?");
-        $stmt->bind_param("s", $correo);
-        $stmt->execute();
-        $resultado = $stmt->get_result();
-
-        if ($resultado->num_rows === 1) {
-            $usuario = $resultado->fetch_assoc();
-
-            if (password_verify($contraseñaIngresada, $usuario['contraseña'])) {
-                echo "✅ Inicio de sesión exitoso. ¡Bienvenido, " . $usuario['nombre'] . "!";
-                // header("Location: dashboard.php"); // <-- Descomenta para redirigir
-            } else {
-                echo "⚠️ Contraseña incorrecta.";
-            }
+        if (iniciarSesion($correo, $contraseña)) {
+            echo "<script>
+                    alert('Inicio de sesión exitoso.');
+                    window.location.href = 'dashboard.php'; // redirige a tu dashboard
+                  </script>";
         } else {
-            echo "❌ El usuario no existe.";
+            echo "<script>
+                    alert('Correo o contraseña incorrectos.');
+                    window.history.back();
+                  </script>";
         }
-
-        $stmt->close();
     }
-
-    $conn->close();
 }
 ?>
+
