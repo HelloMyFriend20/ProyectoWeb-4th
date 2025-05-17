@@ -66,7 +66,7 @@ function iniciarSesion($correo, $contraseñaIngresada) {
 
         if (password_verify($contraseñaIngresada, $usuario['contraseña'])) {
             session_start();
-            $_SESSION['usuario'] = $usuario['nombre']; // o podrías guardar el ID
+            $_SESSION['usuario'] = $usuario; // o podrías guardar el ID
             return true;
         }
     }

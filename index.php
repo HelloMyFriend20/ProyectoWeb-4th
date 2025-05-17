@@ -17,11 +17,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
             <img src="imagenes/logo.png" alt="logo" width="200">
         </div>
         <nav class="menu_desplegable">
-            <ul>s
+            <ul>
                 <li><a href="index.php">Inicio</a></li>
-                <li><a href="hospedaje.html">Hospedaje</a></li>
-                <li><a href="restaurantes.html">Restaurantes</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="hospedaje.php">Hospedaje</a></li>
+                <li><a href="restaurantes.php">Restaurantes</a></li>
+                <li><a href="servicios.php">Servicios</a></li>
                 <?php if ($usuario): ?>
                     <li><a href="editar_perfil.html">Editar Perfil</a></li>
                 <?php else: ?>

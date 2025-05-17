@@ -1,3 +1,7 @@
+<?php
+session_start();
+$usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,10 +19,14 @@
         <nav class="menu_desplegable">
             <ul>
                 <li><a href="index.php">Inicio</a></li>
-                <li><a href="hospedaje.html">hospedaje</a></li>
-                <li><a href="restaurantes.html">Restaurantes</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="iniciosesion.html">Iniciar Sesion</a></li>
+                <li><a href="hospedaje.php">Hospedaje</a></li>
+                <li><a href="restaurantes.php">Restaurantes</a></li>
+                <li><a href="servicios.php">Servicios</a></li>
+                <?php if ($usuario): ?>
+                    <li><a href="editar_perfil.html">Editar Perfil</a></li>
+                <?php else: ?>
+                    <li><a href="iniciosesion.html">Iniciar Sesión</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </section>

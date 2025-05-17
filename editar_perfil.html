@@ -12,7 +12,7 @@
         <h2>Editar Perfil</h2>
 
         <!-- Actualizar nombre -->
-        <form action="views/monitoreo/editar_perfil.php" method="post">
+        <form id="form-nombre">
             <label for="nombre">Nuevo Nombre:</label><br>
             <input type="text" id="nombre" name="nombre"><br>
             <input type="hidden" name="campo" value="nombre">
@@ -20,7 +20,7 @@
         </form>
 
         <!-- Actualizar apellido -->
-        <form action="views/monitoreo/editar_perfil.php" method="post">
+        <form id="form-apellido">
             <label for="apellido">Nuevo Apellido:</label><br>
             <input type="text" id="apellido" name="apellido"><br>
             <input type="hidden" name="campo" value="apellido">
@@ -28,7 +28,7 @@
         </form>
 
         <!-- Actualizar correo -->
-        <form action="views/monitoreo/editar_perfil.php" method="post">
+        <form id="form-correo">
             <label for="correo">Nuevo Correo:</label><br>
             <input type="email" id="correo" name="correo"><br>
             <input type="hidden" name="campo" value="correo">
@@ -36,7 +36,7 @@
         </form>
 
         <!-- Actualizar contraseña -->
-        <form action="views/monitoreo/editar_perfil.php" method="post">
+        <form id="form-contraseña">
             <label for="contraseña">Nueva Contraseña:</label><br>
             <input type="password" id="contraseña" name="contraseña"><br>
             <input type="hidden" name="campo" value="contraseña">
@@ -65,5 +65,29 @@
             </div>
         </div>
     </footer>
+    <script>
+        function enviarFormulario(idFormulario) {
+            const form = document.getElementById(idFormulario);
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const formData = new FormData(form);
+
+                const respuesta = await fetch('views/monitoreo/editar_perfil.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const texto = await respuesta.text();
+                alert(texto.trim());
+            });
+        }
+
+        enviarFormulario('form-nombre');
+        enviarFormulario('form-apellido');
+        enviarFormulario('form-correo');
+        enviarFormulario('form-contraseña');
+    </script>
+
 </body>
 </html>
