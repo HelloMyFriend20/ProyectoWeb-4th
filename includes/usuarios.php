@@ -75,4 +75,62 @@ function iniciarSesion($correo, $contraseñaIngresada) {
     $conn->close();
     return false;
 }
+
+function cerrarSesion() {
+    session_start();
+    session_unset();
+    session_destroy();
+    header("Location: /ProyectoWeb-4th/index.php");
+    exit;
+}
+
+function actualizarCampoPerfil($idUsuario, $campo, $valor) {
+    $conn = conectarBD();
+
+    // Validar campos permitidos
+    $camposPermitidos = ['nombre', 'apellido', 'correo', 'contraseña'];
+    if (!in_array($campo, $camposPermitidos)) {
+        return ['exito' => false, 'mensaje' => 'Campo no permitido.'];
+    }
+
+    // Si es contraseña, la encriptamos
+    if ($campo === 'contraseña') {
+        $valor = password_hash($valor, PASSWORD_DEFAULT);
+    }
+
+    // Validar que el correo no esté en uso por otro usuario
+    if ($campo === 'correo') {
+        $stmt = $conn->prepare("SELECT id FROM registro WHERE correo = ? AND id != ?");
+        $stmt->bind_param("si", $valor, $idUsuario);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            $stmt->close();
+            $conn->close();
+            return ['exito' => false, 'mensaje' => 'Este correo ya está en uso por otro usuario.'];
+        }
+        $stmt->close();
+    }
+
+    // Preparar el SQL dinámicamente
+    $sql = "UPDATE registro SET $campo = ? WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    if (!$stmt) {
+        return ['exito' => false, 'mensaje' => 'Error al preparar la consulta.'];
+    }
+
+    $stmt->bind_param("si", $valor, $idUsuario);
+    $exito = $stmt->execute();
+
+    $stmt->close();
+    $conn->close();
+
+    if ($exito) {
+        return ['exito' => true, 'mensaje' => "Campo '$campo' actualizado exitosamente."];
+    } else {
+        return ['exito' => false, 'mensaje' => 'Error al actualizar el perfil.'];
+    }
+}
+
 ?>

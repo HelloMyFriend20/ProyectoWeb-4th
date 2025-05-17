@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Estilos/sesion.css">
+    <title>Editar Perfil</title>
+</head>
+<body>
+    <div class="sesion">
+        <h2>Editar Perfil</h2>
+
+        <!-- Actualizar nombre -->
+        <form action="views/monitoreo/editar_perfil.php" method="post">
+            <label for="nombre">Nuevo Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre"><br>
+            <input type="hidden" name="campo" value="nombre">
+            <button type="submit">Actualizar</button>
+        </form>
+
+        <!-- Actualizar apellido -->
+        <form action="views/monitoreo/editar_perfil.php" method="post">
+            <label for="apellido">Nuevo Apellido:</label><br>
+            <input type="text" id="apellido" name="apellido"><br>
+            <input type="hidden" name="campo" value="apellido">
+            <button type="submit">Actualizar</button>
+        </form>
+
+        <!-- Actualizar correo -->
+        <form action="views/monitoreo/editar_perfil.php" method="post">
+            <label for="correo">Nuevo Correo:</label><br>
+            <input type="email" id="correo" name="correo"><br>
+            <input type="hidden" name="campo" value="correo">
+            <button type="submit">Actualizar</button>
+        </form>
+
+        <!-- Actualizar contraseña -->
+        <form action="views/monitoreo/editar_perfil.php" method="post">
+            <label for="contraseña">Nueva Contraseña:</label><br>
+            <input type="password" id="contraseña" name="contraseña"><br>
+            <input type="hidden" name="campo" value="contraseña">
+            <button type="submit">Actualizar</button>
+        </form>
+
+        <!-- Botón de cerrar sesión -->
+        <form action="views/monitoreo/acciones_usuario.php" method="get">
+            <input type="hidden" name="accion" value="cerrar_sesion">
+            <button type="submit">Cerrar Sesión</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="datos">
+            <p>&copy; 2023 Club Campestre Puentes Reyes. Todos los derechos reservados - Bogota D.C. - Colombia</p>
+            <p>Atencion al asociado: 3134180766</p>
+            <p>Correo: contacto@puentesreyes.com</p>
+        </div>
+        <div class="redes_sociales">
+            <div class="instagram">
+                <a href="https://www.instagram.com/andres_pedroza_1504/"><img src="https://cdn.pixabay.com/photo/2021/06/15/12/17/instagram-6338401_1280.png" alt="Instagram" title="Instagram" width="50" height="50">Instagram</a>
+            </div>
+            <div class="facebook">
+                <a href="https://www.facebook.com/HelloMyFriend2020"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/800px-2021_Facebook_icon.svg.png" alt="Facebook" title="Facebook" width="50" height="50">Facebook</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

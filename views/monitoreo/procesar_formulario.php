@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         } elseif ($exito) {
             echo "<script>
                     alert('Registro exitoso.');
-                    window.location.href = '../../registro.html'; // o a donde desees redirigir
+                    window.location.href = '../../index.php'; // o a donde desees redirigir
                   </script>";
         } else {
             echo "<script>
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (iniciarSesion($correo, $contraseña)) {
             echo "<script>
                     alert('Inicio de sesión exitoso.');
-                    window.location.href = 'dashboard.php'; // redirige a tu dashboard
+                    window.location.href = '../../index.php'; //redirige al index
                   </script>";
         } else {
             echo "<script>

@@ -1,5 +1,9 @@
+<?php
+session_start();
+$usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,18 +17,24 @@
             <img src="imagenes/logo.png" alt="logo" width="200">
         </div>
         <nav class="menu_desplegable">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="hospedaje.html">hospedaje</a></li>
+            <ul>s
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="hospedaje.html">Hospedaje</a></li>
                 <li><a href="restaurantes.html">Restaurantes</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="afiliaciones.html">Iniciar Sesion</a></li>
+                <?php if ($usuario): ?>
+                    <li><a href="editar_perfil.html">Editar Perfil</a></li>
+                <?php else: ?>
+                    <li><a href="iniciosesion.html">Iniciar Sesión</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </section>
+
     <div class="titulo">
         <h1>Puentes Reyes Country Club</h1>
     </div>    
+
     <div class="servicios">
         <div class="club">
             <h2>El Club</h2>
@@ -36,10 +46,11 @@
             <img src="imagenes/club.jpg" loading="lazy" alt="Club">
         </div>     
     </div>
+
     <footer>
         <div class="datos">
             <p>&copy; 2023 Club Campestre Puentes Reyes. Todos los derechos reservados - Bogota D.C. - Colombia</p>
-            <p>Atencion al asociado: 3134180766</p>
+            <p>Atención al asociado: 3134180766</p>
             <p>Correo: contacto@puentesreyes.com</p>
         </div>
         <div class="redes_sociales">
