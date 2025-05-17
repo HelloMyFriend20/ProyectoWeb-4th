@@ -42,11 +42,20 @@
             <input type="hidden" name="campo" value="contraseña">
             <button type="submit">Actualizar</button>
         </form>
+        <!-- Botón de volver -->
+        <form action="index.php" method="get">
+            <button type="submit">Volver</button>
+        </form>
 
         <!-- Botón de cerrar sesión -->
         <form action="views/monitoreo/acciones_usuario.php" method="get">
             <input type="hidden" name="accion" value="cerrar_sesion">
             <button type="submit">Cerrar Sesión</button>
+        </form>
+
+        <!-- Botón de eliminar cuenta -->
+        <form id="form-eliminar-cuenta">
+            <button type="submit" style="background-color: red; color: white;">Eliminar Cuenta</button>
         </form>
     </div>
 
@@ -66,28 +75,46 @@
         </div>
     </footer>
     <script>
-        function enviarFormulario(idFormulario) {
-            const form = document.getElementById(idFormulario);
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
+    function enviarFormulario(idFormulario) {
+        const form = document.getElementById(idFormulario);
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
 
-                const formData = new FormData(form);
+            const formData = new FormData(form);
 
-                const respuesta = await fetch('views/monitoreo/editar_perfil.php', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                const texto = await respuesta.text();
-                alert(texto.trim());
+            const respuesta = await fetch('views/monitoreo/editar_perfil.php', {
+                method: 'POST',
+                body: formData
             });
+
+            const texto = await respuesta.text();
+            alert(texto.trim());
+        });
+    }
+
+    enviarFormulario('form-nombre');
+    enviarFormulario('form-apellido');
+    enviarFormulario('form-correo');
+    enviarFormulario('form-contraseña');
+
+    document.getElementById('form-eliminar-cuenta').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const confirmar = confirm("¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.");
+        if (!confirmar) return;
+
+        const respuesta = await fetch('views/monitoreo/eliminar_cuenta.php', {
+            method: 'POST'
+        });
+
+        const texto = await respuesta.text();
+        alert(texto.trim());
+
+        // Redirigir al usuario a la página principal después de eliminar
+        if (texto.trim() === "Tu cuenta ha sido eliminada correctamente.") {
+            window.location.href = 'index.php';
         }
-
-        enviarFormulario('form-nombre');
-        enviarFormulario('form-apellido');
-        enviarFormulario('form-correo');
-        enviarFormulario('form-contraseña');
+    });
     </script>
-
 </body>
 </html>

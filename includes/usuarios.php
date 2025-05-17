@@ -133,4 +133,23 @@ function actualizarCampoPerfil($idUsuario, $campo, $valor) {
     }
 }
 
+function eliminarCuentaUsuario($idUsuario) {
+    $conn = conectarBD();
+
+    $stmt = $conn->prepare("DELETE FROM registro WHERE id = ?");
+    $stmt->bind_param("i", $idUsuario);
+
+    if ($stmt->execute()) {
+        session_start();
+        session_unset();
+        session_destroy();
+        return ['exito' => true, 'mensaje' => 'Tu cuenta ha sido eliminada correctamente.'];
+    } else {
+        return ['exito' => false, 'mensaje' => 'Error al eliminar la cuenta.'];
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+
 ?>
