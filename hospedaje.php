@@ -48,7 +48,6 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <div class="varios_hoteles">
             <div class="hotel1">
                 <h3>Hotel Melbourne</h3>
-                <br>Wrong Credentials
                 <a href="#Melbourne"><img src="https://www.construcia.com/wp-content/uploads/2023/10/Construcia-Hyde-158-700x467.jpg" loading="lazy" alt="Imagen_Melbourne" width="380" height="300"></a>
             </div>
             <div class="hotel1">
