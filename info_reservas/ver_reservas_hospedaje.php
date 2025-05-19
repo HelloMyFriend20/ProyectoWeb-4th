@@ -20,8 +20,10 @@ $reservas = obtenerReservasHospedajeUsuario($idUsuario);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mis Reservas de Hospedaje</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Estilos/sesion.css">
+    <title>Mis Reservas de Hospedaje</title>
 </head>
 <body>
     <div class="sesion">
