@@ -140,7 +140,11 @@ function eliminarCuentaUsuario($idUsuario) {
     $stmt->bind_param("i", $idUsuario);
 
     if ($stmt->execute()) {
-        session_start();
+        // Solo inicia la sesión si no ha sido iniciada
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
         session_unset();
         session_destroy();
         return ['exito' => true, 'mensaje' => 'Tu cuenta ha sido eliminada correctamente.'];
