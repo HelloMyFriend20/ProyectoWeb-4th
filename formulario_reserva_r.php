@@ -1,16 +1,39 @@
 <?php
-// Conexión a la base de datos (ajusta según tu archivo de conexión)
+// Conexión a la base de datos
 require_once 'database/conexion.php';
 
+session_start();
 $conn = conectarBD();
 $restaurantes = [];
 
+// Obtener lista de restaurantes
 $result = $conn->query("SELECT nombre FROM restaurantes");
 if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $restaurantes[] = $row['nombre'];
     }
 }
+
+// Verificar si hay sesión iniciada y obtener nombre y apellido desde la base de datos
+$nombre = '';
+$apellido = '';
+
+if (isset($_SESSION['usuario'])) {
+    $id_usuario = $_SESSION['usuario'];
+
+    $stmt = $conn->prepare("SELECT nombre, apellido FROM registro WHERE id = ?");
+    $stmt->bind_param("i", $id_usuario);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+    if ($fila = $resultado->fetch_assoc()) {
+        $nombre = $fila['nombre'];
+        $apellido = $fila['apellido'];
+    }
+
+    $stmt->close();
+}
+
 $conn->close();
 ?>
 
@@ -31,16 +54,15 @@ $conn->close();
             <label for="restaurante">Seleccione el restaurante:</label>
             <select name="restaurante" required>
                 <option value="">-- Seleccione --</option>
-                <?php foreach ($restaurantes as $nombre): ?>
-                    <option value="<?php echo htmlspecialchars($nombre); ?>">
-                        <?php echo htmlspecialchars($nombre); ?>
+                <?php foreach ($restaurantes as $nombre_rest): ?>
+                    <option value="<?php echo htmlspecialchars($nombre_rest); ?>">
+                        <?php echo htmlspecialchars($nombre_rest); ?>
                     </option>
                 <?php endforeach; ?>
             </select>
             <br><br>
 
-            <label for="nombre">Nombre persona reserva:</label>
-            <input type="text" name="nombre" required><br><br>
+            <p>Reserva a nombre de: <strong><?php echo htmlspecialchars($nombre . ' ' . $apellido); ?></strong></p><br><br>
 
             <label for="fecha">Fecha de reserva:</label>
             <input type="date" name="fecha" required><br><br>
@@ -57,8 +79,8 @@ $conn->close();
 
     <footer>
         <div class="datos">
-            <p>&copy; 2023 Club Campestre Puentes Reyes. Todos los derechos reservados - Bogota D.C. - Colombia</p>
-            <p>Atencion al asociado: 3134180766</p>
+            <p>&copy; 2023 Club Campestre Puentes Reyes. Todos los derechos reservados - Bogotá D.C. - Colombia</p>
+            <p>Atención al asociado: 3134180766</p>
             <p>Correo: contacto@puentesreyes.com</p>
         </div>
         <div class="redes_sociales">
