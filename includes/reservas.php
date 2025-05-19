@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../database/conexion.php';
 
+//Función para guardar la reserva de un restaurante
 function guardarReservaRestaurante($idUsuario, $fecha, $hora, $personas, $restaurante) {
     $conn = conectarBD();
 
@@ -35,7 +36,169 @@ function guardarReservaRestaurante($idUsuario, $fecha, $hora, $personas, $restau
     return ['exito' => true, 'mensaje' => $mensaje];
 }
 
-// ✅ FUNCIÓN ACTUALIZADA CON INFORMACIÓN DEL RESTAURANTE
+// Función para guardar la reserva de hospedaje
+function guardarReservaHospedaje($idUsuario, $fecha, $hora, $personas, $hospedaje) {
+    $conn = conectarBD();
+
+    $stmtUser = $conn->prepare("SELECT nombre, apellido FROM registro WHERE id = ?");
+    $stmtUser->bind_param("i", $idUsuario);
+    $stmtUser->execute();
+    $usuario = $stmtUser->get_result()->fetch_assoc();
+    $stmtUser->close();
+
+    if (!$usuario) {
+        return ['exito' => false, 'mensaje' => 'Usuario no encontrado.'];
+    }
+
+    $nombreCompleto = $usuario['nombre'] . ' ' . $usuario['apellido'];
+
+    $stmt = $conn->prepare("INSERT INTO reservas_hospedaje (nombre, fecha, hora, personas, hospedaje, id_usuario)
+                            VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssisi", $nombreCompleto, $fecha, $hora, $personas, $hospedaje, $idUsuario);
+
+    $mensaje = $stmt->execute() ? '¡Reserva de hospedaje realizada con éxito!' : 'Error al guardar la reserva de hospedaje: ' . $stmt->error;
+
+    $stmt->close();
+    $conn->close();
+
+    return ['exito' => true, 'mensaje' => $mensaje];
+}
+
+// Funcion para guardar la reserva de un servicio
+function guardarReservaServicio($idUsuario, $fecha, $hora, $personas, $servicio) {
+    $conn = conectarBD();
+
+    $stmtUser = $conn->prepare("SELECT nombre, apellido FROM registro WHERE id = ?");
+    $stmtUser->bind_param("i", $idUsuario);
+    $stmtUser->execute();
+    $usuario = $stmtUser->get_result()->fetch_assoc();
+    $stmtUser->close();
+
+    if (!$usuario) {
+        return ['exito' => false, 'mensaje' => 'Usuario no encontrado.'];
+    }
+
+    $nombreCompleto = $usuario['nombre'] . ' ' . $usuario['apellido'];
+
+    $stmt = $conn->prepare("INSERT INTO reservas_servicio (nombre, fecha, hora, personas, servicio, id_usuario)
+                            VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssisi", $nombreCompleto, $fecha, $hora, $personas, $servicio, $idUsuario);
+
+    $mensaje = $stmt->execute() ? '¡Reserva de servicio realizada con éxito!' : 'Error al guardar la reserva de servicio: ' . $stmt->error;
+
+    $stmt->close();
+    $conn->close();
+
+    return ['exito' => true, 'mensaje' => $mensaje];
+}
+
+// 🔹 HOSPEDAJES
+function obtenerReservasHospedajeUsuario($idUsuario) {
+    $conn = conectarBD();
+    $sql = "SELECT id_reserva, fecha, hora, personas, hospedaje FROM reservas_hospedaje WHERE id_usuario = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $idUsuario);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $reservas = [];
+    while ($fila = $resultado->fetch_assoc()) {
+        $reservas[] = $fila;
+    }
+    $stmt->close();
+    $conn->close();
+    return $reservas;
+}
+
+function obtenerReservaHospedajePorId($idReserva, $idUsuario) {
+    $conn = conectarBD();
+    $stmt = $conn->prepare("SELECT * FROM reservas_hospedaje WHERE id_reserva = ? AND id_usuario = ?");
+    $stmt->bind_param("ii", $idReserva, $idUsuario);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $reserva = $resultado->fetch_assoc();
+    $stmt->close();
+    $conn->close();
+    return $reserva;
+}
+
+function actualizarReservaHospedaje($idReserva, $fecha, $hora, $personas) {
+    $conn = conectarBD();
+    $stmt = $conn->prepare("UPDATE reservas_hospedaje SET fecha = ?, hora = ?, personas = ? WHERE id_reserva = ?");
+    $stmt->bind_param("ssii", $fecha, $hora, $personas, $idReserva);
+    $exito = $stmt->execute();
+    $mensaje = $exito ? "Reserva actualizada correctamente." : "Error: " . $stmt->error;
+    $stmt->close();
+    $conn->close();
+    return ['exito' => $exito, 'mensaje' => $mensaje];
+}
+
+function eliminarReservaHospedaje($idReserva) {
+    $conn = conectarBD();
+    $stmt = $conn->prepare("DELETE FROM reservas_hospedaje WHERE id_reserva = ?");
+    $stmt->bind_param("i", $idReserva);
+    $exito = $stmt->execute();
+    $mensaje = $exito ? "" : "Error al eliminar la reserva: " . $stmt->error;
+    $stmt->close();
+    $conn->close();
+    return ['exito' => $exito, 'mensaje' => $mensaje];
+}
+
+// 🔸 SERVICIOS
+function obtenerReservasServicioUsuario($idUsuario) {
+    $conn = conectarBD();
+
+    $stmt = $conn->prepare("SELECT * FROM reservas_servicio WHERE id_usuario = ?");
+    $stmt->bind_param("i", $idUsuario);
+    $stmt->execute();
+
+    $resultado = $stmt->get_result();
+    $reservas = [];
+
+    while ($fila = $resultado->fetch_assoc()) {
+        $reservas[] = $fila;
+    }
+
+    $stmt->close();
+    $conn->close();
+
+    return $reservas;
+}
+
+function obtenerReservaServicioPorId($idReserva, $idUsuario) {
+    $conn = conectarBD();
+    $stmt = $conn->prepare("SELECT * FROM reservas_servicio WHERE id_reserva = ? AND id_usuario = ?");
+    $stmt->bind_param("ii", $idReserva, $idUsuario);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $reserva = $resultado->fetch_assoc();
+    $stmt->close();
+    $conn->close();
+    return $reserva;
+}
+
+function actualizarReservaServicio($idReserva, $fechaInicio, $fechaFin, $personas) {
+    $conn = conectarBD();
+    $stmt = $conn->prepare("UPDATE reservas_servicio SET fecha_inicio = ?, fecha_fin = ?, personas = ? WHERE id_reserva = ?");
+    $stmt->bind_param("ssii", $fechaInicio, $fechaFin, $personas, $idReserva);
+    $exito = $stmt->execute();
+    $mensaje = $exito ? "Reserva actualizada correctamente." : "Error: " . $stmt->error;
+    $stmt->close();
+    $conn->close();
+    return ['exito' => $exito, 'mensaje' => $mensaje];
+}
+
+function eliminarReservaServicio($idReserva) {
+    $conn = conectarBD();
+    $stmt = $conn->prepare("DELETE FROM reservas_servicio WHERE id_reserva = ?");
+    $stmt->bind_param("i", $idReserva);
+    $exito = $stmt->execute();
+    $mensaje = $exito ? "" : "Error al eliminar la reserva: " . $stmt->error;
+    $stmt->close();
+    $conn->close();
+    return ['exito' => $exito, 'mensaje' => $mensaje];
+}
+
+
 function obtenerReservasUsuario($idUsuario) {
     $conn = conectarBD();
 

@@ -13,19 +13,19 @@ $idUsuario = $_SESSION['usuario']['id'];
 $nombreUsuario = $_SESSION['usuario']['nombre'] . ' ' . $_SESSION['usuario']['apellido'];
 
 // Obtener reservas del usuario
-$reservas = obtenerReservasUsuario($idUsuario);
+$reservas = obtenerReservasServicioUsuario($idUsuario);
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mis Reservas de Restaurantes</title>
+    <title>Mis Reservas de Servicios</title>
     <link rel="stylesheet" href="../Estilos/sesion.css"> <!-- Ajusta si tienes un CSS específico -->
 </head>
 <body>
     <div class="sesion">
-        <h1>Reservas de restaurantes de<?php echo htmlspecialchars($nombreUsuario); ?></h1>
+        <h1>Reservas de Servicio de <?php echo htmlspecialchars($nombreUsuario); ?></h1>
 
         <?php if (empty($reservas)): ?>
             <p>No tienes reservas registradas.</p>
@@ -33,7 +33,7 @@ $reservas = obtenerReservasUsuario($idUsuario);
             <table border="1" cellpadding="10">
                 <thead>
                     <tr>
-                        <th>Restaurante</th>
+                        <th>Servicio</th>
                         <th>Fecha</th>
                         <th>Hora</th>
                         <th>Personas</th>
@@ -43,13 +43,13 @@ $reservas = obtenerReservasUsuario($idUsuario);
                 <tbody>
                     <?php foreach ($reservas as $reserva): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($reserva['restaurante']); ?></td>
+                            <td><?php echo htmlspecialchars($reserva['servicio']); ?></td>
                             <td><?php echo htmlspecialchars($reserva['fecha']); ?></td>
                             <td><?php echo htmlspecialchars($reserva['hora']); ?></td>
                             <td><?php echo htmlspecialchars($reserva['personas']); ?></td>
                             <td>
-                                <a href="editar_reservas.php?id_reserva=<?php echo $reserva['id_reserva']; ?>">Editar</a>
-                                <a href="eliminar_reservas.php?id_reserva=<?php echo $reserva['id_reserva']; ?>" onclick="return confirm('¿Estás seguro de eliminar esta reserva?');">Eliminar</a>
+                                <a href="editar_reservas_servicio.php?id_reserva=<?php echo $reserva['id_reserva']; ?>">Editar</a>
+                                <a href="eliminar_reservas_servicio.php?id_reserva=<?php echo $reserva['id_reserva']; ?>" onclick="return confirm('¿Estás seguro de eliminar esta reserva?');">Eliminar</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
