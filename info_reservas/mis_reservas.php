@@ -23,6 +23,7 @@ if (!isset($_SESSION['usuario'])) {
         <button type="button" onclick="location.href='ver_reservas.php'">Reservas de Restaurantes</button>
         <button type="button" onclick="location.href='ver_reservas_hospedaje.php'">Reservas de Hospedaje</button>
         <button type="button" onclick="location.href='ver_reservas_servicio.php'">Reservas de Servicios</button>
+        <button type="button" onclick="location.href='../index.php'">Volver a inicio</button>
     </div>
     <footer>
         <div class="datos">

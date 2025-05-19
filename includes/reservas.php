@@ -176,10 +176,10 @@ function obtenerReservaServicioPorId($idReserva, $idUsuario) {
     return $reserva;
 }
 
-function actualizarReservaServicio($idReserva, $fechaInicio, $fechaFin, $personas) {
+function actualizarReservaServicio($idReserva, $fecha, $hora, $personas) {
     $conn = conectarBD();
-    $stmt = $conn->prepare("UPDATE reservas_servicio SET fecha_inicio = ?, fecha_fin = ?, personas = ? WHERE id_reserva = ?");
-    $stmt->bind_param("ssii", $fechaInicio, $fechaFin, $personas, $idReserva);
+    $stmt = $conn->prepare("UPDATE reservas_servicio SET fecha = ?, hora = ?, personas = ? WHERE id_reserva = ?");
+    $stmt->bind_param("ssii", $fecha, $hora, $personas, $idReserva);
     $exito = $stmt->execute();
     $mensaje = $exito ? "Reserva actualizada correctamente." : "Error: " . $stmt->error;
     $stmt->close();

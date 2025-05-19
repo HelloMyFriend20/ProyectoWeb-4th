@@ -155,7 +155,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
             <h4>Información gimnasio</h4>
             <p>Mantente en forma en nuestro gimnasio totalmente equipado. Ofrecemos una variedad de máquinas y equipos para ayudarte a alcanzar tus objetivos de fitness. Ya seas principiante o experto, nuestro gimnasio es el lugar ideal para entrenar.</p>
             <?php if ($usuario): ?>
-                    <button><a href="formulario_reserva_h.php"><b>Reserva con nosotros</b></a></button>
+                    <button><a href="formulario_reserva_s.php"><b>Reserva con nosotros</b></a></button>
                 <?php else: ?>
                     <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
                 <?php endif; ?>
