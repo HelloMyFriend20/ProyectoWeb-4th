@@ -69,7 +69,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <div class="parte2">
             <h4>Información White</h4>
             <p>Reserva en nuestro restaurante más lujoso donde podras disfrutar de nuestra carta gourmet aprovada por criticos y chefs a nivel mundial, contamos con un excelente servicio y especial preparacion de nuestros alimentos.</p>
-            <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php if ($usuario): ?>
+                <button><a href="formulario_reserva_r.php"><b>Reserva con nosotros</b></a></button>
+            <?php else: ?>
+                <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php endif; ?>
             <button><a href="#inicio"><b>Volver al inicio</b></a></button>
         </div>
     </div>
@@ -82,7 +86,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <div class="parte2">
             <h4>Información Pedroza Beltran</h4>
             <p>Reserva en nuestro aclamado restaurante ubicado en nuestra sede principal en Bogota D.C. Donde podras disfrutar de una agradable experiencia y compartir con tus seres queridos nuestra excelente comida</p>
-            <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php if ($usuario): ?>
+                <button><a href="formulario_reserva_r.php"><b>Reserva con nosotros</b></a></button>
+            <?php else: ?>
+                <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php endif; ?>
             <button><a href="#inicio"><b>Volver al inicio</b></a></button>
         </div>
     </div>
@@ -95,7 +103,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <div class="parte2">
             <h4>Información Black Velvet</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero qui adipisci corporis, deserunt dolorum libero in eius deleniti alias aliquid earum labore atque distinctio dolores eos illo aliquam culpa? Praesentium!</p>
-            <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php if ($usuario): ?>
+                <button><a href="formulario_reserva_r.php"><b>Reserva con nosotros</b></a></button>
+            <?php else: ?>
+                <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php endif; ?>
             <button><a href="#inicio"><b>Volver al inicio</b></a></button>
         </div>
     </div>
@@ -103,7 +115,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <div class="parte2" id="hoteleros">
             <h4>Información Restaurante Melbourne</h4>
             <p>Acompañanos en uno de nuestros mejores restaurantes hoteleros, donde podras contar con un excepcional servicio y una maravillosa comida, aprovechando nuestra selecta carta.</p>
-            <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php if ($usuario): ?>
+                <button><a href="formulario_reserva_r.php"><b>Reserva con nosotros</b></a></button>
+            <?php else: ?>
+                <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php endif; ?>
             <button><a href="#inicio"><b>Volver al inicio</b></a></button>
         </div>
         <div class="parte1">
@@ -129,7 +145,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <div class="parte2">
             <h4>Información Restaurante Reyes</h4>
             <p>Entra a nuestro restaurante mas barato, corrientazos a $12.000 y almuerzo ejecutivo a $15.000, encuentra el guizo de doña Susana y el sason de doña Esperanza. Te esperamos gustosos.</p>
-            <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php if ($usuario): ?>
+                <button><a href="formulario_reserva_r.php"><b>Reserva con nosotros</b></a></button>
+            <?php else: ?>
+                <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php endif; ?>
             <button><a href="#inicio"><b>Volver al inicio</b></a></button>
         </div>
         <div class="parte1">
