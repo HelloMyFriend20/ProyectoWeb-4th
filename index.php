@@ -30,11 +30,9 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
             </ul>
         </nav>
     </section>
-
     <div class="titulo">
         <h1>Puentes Reyes Country Club</h1>
     </div>    
-
     <div class="servicios">
         <div class="club">
             <h2>El Club</h2>
@@ -46,7 +44,13 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
             <img src="imagenes/club.jpg" loading="lazy" alt="Club">
         </div>     
     </div>
-
+    <div class="reservas">
+        <h2>Mis Reservas</h2>
+        <p>Aquí puedes ver y gestionar tus reservas.</p>
+        <a href="info_reservas/ver_reservas.php">Ver Reservas</a>
+        <a href="info_reservas/editar_reserva.php">Hacer Reserva</a>
+        <a href="info_reservas/eliminar_reserva.php">Hacer Reserva de Hospedaje</a>
+    </div>
     <footer>
         <div class="datos">
             <p>&copy; 2023 Club Campestre Puentes Reyes. Todos los derechos reservados - Bogota D.C. - Colombia</p>
