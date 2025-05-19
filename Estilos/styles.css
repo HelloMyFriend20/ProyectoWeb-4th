@@ -153,6 +153,65 @@ html {
     }
 }
 
+/*Reservas*/
+.reservas {
+    background-color: #FFE8E0; /* fondo suave */
+    padding: 4%;
+    text-align: center;
+    border-top: 2px solid #8C5C3E;
+    border-bottom: 2px solid #8C5C3E;
+}
+
+.reservas h2 {
+    font-size: 2em;
+    color: #8C5C3E;
+    margin-bottom: 10px;
+}
+
+.reservas p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #5a3b2b;
+}
+
+.reservas a {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #8C5C3E;
+    color: #F4F1EA;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.reservas a:hover {
+    background-color: #F4F1EA;
+    color: #8C5C3E;
+    border: 1px solid #8C5C3E;
+}
+
+@media (max-width: 768px) {
+    .reservas {
+        padding: 20px 15px;
+    }
+
+    .reservas h2 {
+        font-size: 2rem;
+    }
+
+    .reservas p {
+        font-size: 1rem;
+    }
+
+    .reservas a {
+        margin: 10px auto;
+        display: block;
+        width: 80%;
+    }
+}
+
 /*Footer*/
 footer {
     background-color: #8C5C3E;
