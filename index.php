@@ -9,6 +9,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Estilos/styles.css">
+    <link rel="stylesheet" href="Estilos/styles_index.css">
     <title>Puentes Reyes Country Club</title>
 </head>
 <body>
@@ -48,8 +49,8 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <h2>Mis Reservas</h2>
         <p>Aquí puedes ver y gestionar tus reservas.</p>
         <a href="info_reservas/ver_reservas.php">Ver Reservas</a>
-        <a href="info_reservas/editar_reserva.php">Hacer Reserva</a>
-        <a href="info_reservas/eliminar_reserva.php">Hacer Reserva de Hospedaje</a>
+        <a href="info_reservas/editar_reserva.php">Editar Reserva</a>
+        <a href="info_reservas/eliminar_reserva.php">Eliminar reservas</a>
     </div>
     <footer>
         <div class="datos">
