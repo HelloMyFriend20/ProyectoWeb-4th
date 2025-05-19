@@ -6,7 +6,7 @@ iniciarSesion();
 $usuario = obtenerUsuarioActual();
 
 if (!$usuario) {
-    header("Location: login.php");
+    header("Location: index.php");
     exit;
 }
 
@@ -15,14 +15,14 @@ $idUsuario = $usuario['id'];
 $fecha = $_POST['fecha'] ?? '';
 $hora = $_POST['hora'] ?? '';
 $personas = $_POST['personas'] ?? 0;
-$restaurante = $_POST['restaurante'] ?? '';
+$servicio = $_POST['servicio'] ?? '';
 
-if (empty($fecha) || empty($hora) || empty($personas) || empty($restaurante)) {
+if (empty($fecha) || empty($hora) || empty($personas) || empty($servicio)) {
     echo "Faltan datos para completar la reserva.";
     exit;
 }
 
-$resultado = guardarReservaRestaurante($idUsuario, $fecha, $hora, (int)$personas, $restaurante);
+$resultado = guardarReservaServicio($idUsuario, $fecha, $hora, (int)$personas, $servicio);
 
 echo "<script>alert('" . $resultado['mensaje'] . "'); window.location.href='index.php';</script>";
 

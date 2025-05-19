@@ -73,7 +73,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
                 <p>Ideal para descansar con tu familia, pareja y amigos, contando con habitaciones bastantes grandes, servicio al cuarto, servicio de bar, restaurante, zona de juegos y piscinas.</p>
                 <p>Nuestro hotel es pet-friendly por lo tendras la posibilidad de traer a tu amigo peludo.</p>
                 <p>Reserva ya desde $290.000 <i>($230.000 Afiliados)</i></p>
-                <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php if ($usuario): ?>
+                    <button><a href="formulario_reserva_h.php"><b>Reserva con nosotros</b></a></button>
+                <?php else: ?>
+                    <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php endif; ?>
                 <button><a href="#inicio"><b>Volver al inicio</b></a></button>
             </div>
         </div>
@@ -82,7 +86,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
                 <h4>Informacion Hotel Calderon Cortes</h4>
                 <p>Nuestro hotel mas lujoso con nuestros planes mas completos, cuenta nuestras habitaciones mas lujosas y espaciosas, servicio a la habitacion ,excelente para pasar unas perfectas vacaciones con pareja, familia y amigos. Cuenta con teatro, restaurante, bar, disco, salon de juegos y multiples piscinas.</p>
                 <p>Reserva ya desde $410.000 <i>($350.000 Afiliados)</i></p>
-                <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php if ($usuario): ?>
+                    <button><a href="formulario_reserva_h.php"><b>Reserva con nosotros</b></a></button>
+                <?php else: ?>
+                    <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php endif; ?>
                 <button><a href="#inicio"><b>Volver al inicio</b></a></button>
             </div>
             <div class="hotelInfo">
@@ -102,7 +110,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
                 <p>Sin dejar de ser lujoso te presentamos nuestra opciones mas economica a la hora de reservar nuestros hoteles.</p>
                 <p>Especial para descansar y disfrutar de tus vacaciones, cuenta con restaurante, bar, servicio a la habitación, piscina y salon de juegos.</p>
                 <p>Reserva ya desde $210.000 <i>($150.000 Afiliados)</i></p>
-                <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php if ($usuario): ?>
+                    <button><a href="formulario_reserva_h.php"><b>Reserva con nosotros</b></a></button>
+                <?php else: ?>
+                    <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php endif; ?>
                 <button><a href="#inicio"><b>Volver al inicio</b></a></button>
             </div>
         </div>
@@ -129,7 +141,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
                 <h4>Informacion Zona A</h4>
                 <p>Zona A es una de nuestras zonas mas tranquilas, ideal para descansar y disfrutar de la naturaleza, cuenta con un pequeño lago y una piscina.</p>
                 <p>Reserva ya desde $150.000 <i>($100.000 Afiliados)</i></p>
-                <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php if ($usuario): ?>
+                    <button><a href="formulario_reserva_h.php"><b>Reserva con nosotros</b></a></button>
+                <?php else: ?>
+                    <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php endif; ?>
                 <button><a href="#inicio"><b>Volver al inicio</b></a></button>
             </div>
             <div class="hotelInfo">
@@ -148,7 +164,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
                 <h4>Informacion Zona B</h4>
                 <p>Zona B es una de nuestras zonas mas tranquilas, ideal para descansar y disfrutar de la naturaleza, cuenta con un pequeño lago y una piscina.</p>
                 <p>Reserva ya desde $150.000 <i>($100.000 Afiliados)</i></p>
-                <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php if ($usuario): ?>
+                    <button><a href="formulario_reserva_h.php"><b>Reserva con nosotros</b></a></button>
+                <?php else: ?>
+                    <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php endif; ?>
                 <button><a href="#inicio"><b>Volver al inicio</b></a></button>
             </div>
         </div>

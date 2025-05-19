@@ -1,16 +1,16 @@
 <?php
-// Conexión a la base de datos
+//Conexion a la base de datos
 require_once 'database/conexion.php';
 
 session_start();
 $conn = conectarBD();
-$restaurantes = [];
+$servicios = [];
 
-// Obtener lista de restaurantes
-$result = $conn->query("SELECT nombre FROM restaurantes");
+// Obtener lista de servicios
+$result = $conn->query("SELECT nombre FROM servicios");
 if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $restaurantes[] = $row['nombre'];
+        $servicios[] = $row['nombre'];
     }
 }
 
@@ -44,36 +44,36 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Estilos/sesion.css">
-    <title>Reservar restaurantes</title>
+    <title>Reservar Servicio</title>
 </head>
 <body>
     <div class="sesion">
-        <form action="guardar_reserva.php" method="POST">
-            <h1>Reserva restaurante</h1><br>
+        <form action="guardar_reserva_s.php" method="POST">
+            <h1>Reserva de servicio</h1><br>
 
             <p>Reserva a nombre de: <strong><?php echo htmlspecialchars($nombre . ' ' . $apellido); ?></strong></p><br><br>
 
-            <label for="fecha">Fecha de reserva:</label>
-            <input type="date" name="fecha" required><br><br>
+            <label for="fecha">Fecha:</label>
+            <input type="date" name="fecha" required><br>
 
             <label for="hora">Hora:</label>
-            <input type="time" name="hora" required><br><br>
+            <input type="time" name="hora" required><br>
 
             <label for="personas">Número de personas:</label>
-            <input type="number" name="personas" required min="1"><br>
+            <input type="number" name="personas" min="1" required><br>
 
-            <label for="restaurante">Seleccione el restaurante:</label>
-            <select name="restaurante" required>
+            <label for="servicio">Seleccione el servicio:</label>
+            <select name="servicio" required>
                 <option value="">-- Seleccione --</option>
-                <?php foreach ($restaurantes as $nombre_rest): ?>
-                    <option value="<?php echo htmlspecialchars($nombre_rest); ?>">
-                        <?php echo htmlspecialchars($nombre_rest); ?>
+                <?php foreach ($servicios as $nombre_serv): ?>
+                    <option value="<?php echo htmlspecialchars($nombre_serv); ?>">
+                        <?php echo htmlspecialchars($nombre_serv); ?>
                     </option>
                 <?php endforeach; ?>
             </select><br><br>
-
+            
             <input type="submit" value="Reservar">
-            <a href="restaurantes.php"><button>Volver</button></a>
+            <button><a href="servicios.php">Volver</a></button>
         </form>
     </div>
     <footer>

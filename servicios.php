@@ -9,7 +9,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Estilos/servicios.css">
-    <title>Restaurantes</title>
+    <title>Servicios</title>
 </head>
 <body>
     <section class="inicio" id="inicio">
@@ -86,7 +86,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <div class="parte2">
             <h4>Información piscina</h4>
             <p>Disfruta de nuestra piscina al aire libre, un lugar perfecto para relajarte y refrescarte en los días soleados. Con áreas para adultos y niños, es ideal para toda la familia. Ven y disfruta de un día de diversión bajo el sol.</p>
-            <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php if ($usuario): ?>
+                    <button><a href="formulario_reserva_s.php"><b>Reserva con nosotros</b></a></button>
+                <?php else: ?>
+                    <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php endif; ?>
             <button><a href="#inicio"><b>Volver al inicio</b></a></button>
         </div>
     </div>
@@ -99,7 +103,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <div class="parte2">
             <h4>Información bolera</h4>
             <p>Ven a disfrutar de una emocionante partida de bolos en nuestra espectacular bolera. Con varias pistas disponibles, es el lugar perfecto para pasar un rato divertido con amigos y familiares. Ya seas principiante o experto, ¡todos son bienvenidos!</p>
-            <button><a href="afiliaciones.html"><b>Reserva con nosotros</b></a></button>
+            <?php if ($usuario): ?>
+                    <button><a href="formulario_reserva_s.php"><b>Reserva con nosotros</b></a></button>
+                <?php else: ?>
+                    <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php endif; ?>
             <button><a href="#inicio"><b>Volver al inicio</b></a></button>
         </div>
     </div>
@@ -112,7 +120,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <div class="parte2">
             <h4>Información salon de juegos</h4>
             <p>Disfruta de una amplia variedad de juegos en nuestro salón de juegos. Desde mesas de billar hasta juegos de mesa, hay algo para todos. Ven y diviértete con amigos o familia en un ambiente acogedor y entretenido.</p>
-            <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php if ($usuario): ?>
+                    <button><a href="formulario_reserva_s.php"><b>Reserva con nosotros</b></a></button>
+                <?php else: ?>
+                    <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php endif; ?>
             <button><a href="#inicio"><b>Volver al inicio</b></a></button>
         </div>
     </div>
@@ -125,7 +137,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <div class="parte2">
             <h4>Información teatro</h4>
             <p>Asiste a nuestras funciones en el teatro del club, donde ofrecemos una variedad de espectáculos y eventos culturales. Desde obras de teatro hasta conciertos, siempre hay algo emocionante que ver. ¡No te lo pierdas!</p>
-            <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php if ($usuario): ?>
+                    <button><a href="formulario_reserva_s.php"><b>Reserva con nosotros</b></a></button>
+                <?php else: ?>
+                    <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php endif; ?>
             <button><a href="#inicio"><b>Volver al inicio</b></a></button>
         </div>
     </div>
@@ -138,7 +154,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <div class="parte2">
             <h4>Información gimnasio</h4>
             <p>Mantente en forma en nuestro gimnasio totalmente equipado. Ofrecemos una variedad de máquinas y equipos para ayudarte a alcanzar tus objetivos de fitness. Ya seas principiante o experto, nuestro gimnasio es el lugar ideal para entrenar.</p>
-            <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php if ($usuario): ?>
+                    <button><a href="formulario_reserva_h.php"><b>Reserva con nosotros</b></a></button>
+                <?php else: ?>
+                    <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php endif; ?>
             <button><a href="#inicio"><b>Volver al inicio</b></a></button>
         </div>
     </div>
@@ -151,7 +171,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <div class="parte2">
             <h4>Información canchas deportivas</h4>
             <p>Disfruta de nuestras canchas deportivas, donde puedes practicar tu deporte favorito. Desde tenis hasta fútbol, tenemos instalaciones de alta calidad para que disfrutes de una experiencia deportiva excepcional. Ven y juega con amigos o únete a nuestras ligas y torneos.</p>
-            <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php if ($usuario): ?>
+                    <button><a href="formulario_reserva_s.php"><b>Reserva con nosotros</b></a></button>
+                <?php else: ?>
+                    <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+                <?php endif; ?>
             <button><a href="#inicio"><b>Volver al inicio</b></a></button>
         </div>
     </div>
