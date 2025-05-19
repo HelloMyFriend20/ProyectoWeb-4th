@@ -132,7 +132,11 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <div class="parte2">
             <h4>Información Restaurante Cortes</h4>
             <p>Nuestro mejor restaurante hotelero, catalogado como el sexto mejor del mundo por la revista forbes, con nuestra excelente carta, carismatico personal y cordial servicio garantizamos una maravillosa experiencia</p>
-            <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php if ($usuario): ?>
+                <button><a href="formulario_reserva_r.php"><b>Reserva con nosotros</b></a></button>
+            <?php else: ?>
+                <button><a href="iniciosesion.html"><b>Reserva con nosotros</b></a></button>
+            <?php endif; ?>
             <button><a href="#inicio"><b>Volver al inicio</b></a></button>
         </div>
         <div class="parte1">
