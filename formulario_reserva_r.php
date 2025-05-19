@@ -73,7 +73,7 @@ $conn->close();
             </select><br><br>
 
             <input type="submit" value="Reservar">
-            <a href="restaurantes.php"><button>Volver</button></a>
+            <button class="btn-volver" type="button" onclick="location.href='restaurantes.php'">Volver</button>
         </form>
     </div>
     <footer>

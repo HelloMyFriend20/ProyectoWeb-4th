@@ -189,3 +189,21 @@ footer .redes_sociales img {
         padding: 10% 5%; /* Mantiene el espacio interno del formulario */
     }
 }
+/* estilos para el boton volver del formulario reservas*/
+.btn-volver {
+background-color: #8C5C3E;
+color: #F4F1EA;
+border: 2px solid #F4F1EA;
+padding: 10px 20px;
+font-size: 16px;
+font-weight: bold;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.3s ease;
+width: 100%; /*ancho completo del formulario */
+}
+
+.btn-volver:hover {
+background-color: #F4F1EA;
+color: #8C5C3E;
+}
