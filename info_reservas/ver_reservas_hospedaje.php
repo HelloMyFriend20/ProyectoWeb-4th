@@ -22,7 +22,7 @@ $reservas = obtenerReservasHospedajeUsuario($idUsuario);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Estilos/sesion.css">
+    <link rel="stylesheet" href="../Estilos/ver_reservas.css">
     <title>Mis Reservas de Hospedaje</title>
 </head>
 <body>
@@ -58,6 +58,9 @@ $reservas = obtenerReservasHospedajeUsuario($idUsuario);
                 </tbody>
             </table>
         <?php endif; ?>
+
+        <a href="mis_reservas.php" class="btn-volver">Volver</a>
+        
     </div>
 
     <footer>

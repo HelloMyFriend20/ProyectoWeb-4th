@@ -21,11 +21,11 @@ $reservas = obtenerReservasUsuario($idUsuario);
 <head>
     <meta charset="UTF-8">
     <title>Mis Reservas de Restaurantes</title>
-    <link rel="stylesheet" href="../Estilos/sesion.css"> <!-- Ajusta si tienes un CSS específico -->
+    <link rel="stylesheet" href="../Estilos/ver_reservas.css"> <!-- Ajusta si tienes un CSS específico -->
 </head>
 <body>
     <div class="sesion">
-        <h1>Reservas de restaurantes de<?php echo htmlspecialchars($nombreUsuario); ?></h1>
+        <h1>Reservas de restaurantes de <?php echo htmlspecialchars($nombreUsuario); ?></h1>
 
         <?php if (empty($reservas)): ?>
             <p>No tienes reservas registradas.</p>
@@ -56,6 +56,9 @@ $reservas = obtenerReservasUsuario($idUsuario);
                 </tbody>
             </table>
         <?php endif; ?>
+
+        <a href="mis_reservas.php" class="btn-volver">Volver</a>
+
     </div>
     <footer>
         <div class="datos">

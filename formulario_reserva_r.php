@@ -48,7 +48,7 @@ $conn->close();
 </head>
 <body>
     <div class="sesion">
-        <form action="guardar_reserva.php" method="POST">
+        <form action="guardar_reserva_r.php" method="POST">
             <h1>Reserva restaurante</h1><br>
 
             <p>Reserva a nombre de: <strong><?php echo htmlspecialchars($nombre . ' ' . $apellido); ?></strong></p><br><br>

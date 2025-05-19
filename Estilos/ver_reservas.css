@@ -1,0 +1,146 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #8C5C3E;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #F4F1EA;
+}
+
+/* Sección general de contenido */
+.sesion {
+    padding: 5% 10%;
+    text-align: center;
+    background-image: url(https://cdn.pixabay.com/photo/2017/01/28/19/31/landscape-2016308_1280.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+.sesion h1 {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    color: #F4F1EA;
+    text-shadow: 1px 1px 2px black;
+}
+.sesion p {
+    color: #F4F1EA;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+/* Tabla de reservas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    background-color: #F4F1EA;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+table th, table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+table th {
+    background-color: #8C5C3E;
+    color: #F4F1EA;
+}
+table tr:nth-child(even) {
+    background-color: #eee;
+}
+table tr:hover {
+    background-color: #ddd;
+}
+table a {
+    color: #8C5C3E;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+table a:hover {
+    background-color: #8C5C3E;
+    color: #F4F1EA;
+}
+
+/* Botón volver */
+.btn-volver {
+    background-color: #8C5C3E;
+    color: #f4eaea;
+    border: 2px solid #8C5C3E;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+    text-decoration: none;
+}
+.btn-volver:hover {
+    background-color: #F4F1EA;
+    color: #8C5C3E;
+}
+
+/* Footer */
+footer {
+    background-color: #8C5C3E;
+    color: #F4F1EA;
+    padding: 5% 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
+footer .datos,
+footer .redes_sociales {
+    flex: 1 1 0px;
+    max-width: 400px;
+}
+footer .datos p {
+    margin-bottom: 10px;
+    color: #F4F1EA;
+    text-align: justify;
+}
+footer .redes_sociales {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+footer .redes_sociales a {
+    color: #F4F1EA;
+    text-decoration: none;
+    font-weight: bold;
+}
+footer .redes_sociales img {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sesion {
+        padding: 10%;
+    }
+    table th, table td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+    footer {
+        flex-direction: column;
+        padding: 10% 5%;
+        align-items: center;
+    }
+}
