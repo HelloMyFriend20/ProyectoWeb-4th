@@ -37,6 +37,6 @@ while ($row = $result->fetch_assoc()):
     </tr>
 <?php endwhile; ?>
 </table>
-
+<button class="btn-volver"onclick="location.href='../index.php'">Volver</button>
 </body>
 </html>
