@@ -48,7 +48,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         <h2>Mis Reservas</h2>
         <p>Aquí puedes ver y gestionar tus reservas.</p>
         <a href="info_reservas/mis_reservas.php">Ver Reservas</a>
-        <a href="funciones_bd.php">Funciones bd</a>
+        <a href="/FuncionesBD/index.php">Funciones bd</a>
     </div>
     <footer>
         <div class="datos">
